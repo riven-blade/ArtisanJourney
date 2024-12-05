@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Verdaccio on TigerStack</title>
+    <link>http://localhost:54085/tags/verdaccio/</link>
+    <description>Recent content in Verdaccio on TigerStack</description>
+    <generator>Hugo -- 0.139.3</generator>
+    <language>zh</language>
+    <lastBuildDate>Tue, 03 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:54085/tags/verdaccio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>verdaccio 开源工具</title>
+      <link>http://localhost:54085/posts/verdaccio-%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Tue, 03 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:54085/posts/verdaccio-%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/</guid>
+      <description>&lt;h2 id=&#34;内容&#34;&gt;内容&lt;/h2&gt;
+&lt;h3 id=&#34;工具介绍&#34;&gt;工具介绍&lt;/h3&gt;
+&lt;p&gt;&lt;a href=&#34;https://verdaccio.org&#34;&gt;官方文档&lt;/a&gt; &lt;a href=&#34;https://github.com/verdaccio/verdaccio&#34;&gt;github地址&lt;/a&gt;&lt;br&gt;
+verdaccio 是一款高效、易用的私有 npm 仓库管理工具，特别适合中小型团队使用。它可以显著提升包管理的安全性、效率和稳定性&lt;/p&gt;
+&lt;h3 id=&#34;工具部署&#34;&gt;工具部署&lt;/h3&gt;
+&lt;h4 id=&#34;部署组件&#34;&gt;部署组件&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;sing-box
+sing-box 可以作为verdaccio 拉取上游依赖的代理程序，这是个可选组件， 当服务器访问npm官方仓库网络不好时是必要的， 使用docker部署&lt;/li&gt;
+&lt;li&gt;verdaccio
+官方仓库有docker-compose.yaml 文件， 这里使用docker部署
+&lt;a href=&#34;https://github.com/verdaccio/verdaccio/blob/master/docker-compose.yaml&#34;&gt;官方docker-compose.yaml&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h4 id=&#34;配置文件&#34;&gt;配置文件&lt;/h4&gt;
+&lt;ol&gt;
+&lt;li&gt;docker-compose.yaml&lt;/li&gt;
+&lt;/ol&gt;
+&lt;!-- --&gt;
+&lt;pre&gt;&lt;code&gt;version: &#39;3&#39;
+
+services:
+  verdaccio:
+    restart: always
+    image: verdaccio/verdaccio:nightly-master
+    environment:
+      VERDACCIO_PUBLIC_URL: &amp;quot;https://npm.example.com&amp;quot;
+    container_name: verdaccio
+    ports:
+      - &amp;quot;4873:4873&amp;quot;
+    volumes:
+        - &amp;quot;./storage:/verdaccio/storage&amp;quot;
+        - &amp;quot;./conf:/verdaccio/conf&amp;quot;
+        - &amp;quot;./plugins:/verdaccio/plugins&amp;quot;
+    deploy:
+      resources:
+        limits:
+          cpus: &#39;2&#39;
+          memory: 3G
+  sing-box:
+    image: ghcr.io/sagernet/sing-box:v1.10.3
+    container_name: sing-box
+    restart: always
+    ports:
+      - &amp;quot;1080:1080&amp;quot;
+    volumes:
+      - /etc/sing-box:/etc/sing-box
+      - /var/lib/sing-box:/var/lib/sing-box
+    command: 
+      - run
+      - -D
+      - /var/lib/sing-box
+      - -C
+      - /etc/sing-box
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;说明：&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

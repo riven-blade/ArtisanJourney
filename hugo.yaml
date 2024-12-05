@@ -1,0 +1,115 @@
+baseURL: https://blog.forevenlin.cn
+title: TigerStack
+pagination:
+  pagerSize: 10
+theme: PaperMod
+
+hasCJKLanguage: true
+enableInlineShortcodes: true
+enableEmoji: true
+enableRobotsTXT: true
+buildDrafts: false
+buildFuture: false
+buildExpired: false
+
+minify:
+  disableXML: true
+
+permalinks:
+  post: "/:title/"
+
+outputs:
+  home:
+    - HTML
+    - RSS
+    - JSON
+
+params:
+  env: production
+  description: "一个简约的技术笔记博客"
+  author: 小虎
+
+  homeInfoParams:
+    enabled: true
+    Title: 小虎的笔记
+    Content: 一个简约的技术笔记网站，提供技术文章的更新和思考。
+
+  defaultTheme: auto
+  disableThemeToggle: false
+  DateFormat: "2006-01-02"
+  ShowShareButtons: false
+  ShowReadingTime: true
+  displayFullLangName: true
+  ShowPostNavLinks: true
+  ShowBreadCrumbs: true
+  ShowCodeCopyButtons: true
+  hideFooter: true
+  ShowWordCounts: true
+  VisitCount: true
+  ShowLastMod: true
+  ShowToc: true
+  TocOpen: true
+
+  comments: true
+
+  socialIcons:
+    - name: github
+      url: "https://github.com/riven-blade"
+
+  assets:
+    favicon: "img/favicon.ico"
+    favicon16x16: "img/favicon-96x96.png"
+    favicon32x32: "img/favicon-96x96.png"
+    apple_touch_icon: "apple-touch-icon.png"
+    safari_pinned_tab: "web-app-manifest-192x192.png"
+
+  # 搜索库
+  fuseOpts:
+    isCaseSensitive: false
+    shouldSort: true
+    location: 0
+    distance: 1000
+    threshold: 1
+    minMatchCharLength: 0
+    keys: ["title", "permalink", "summary", "tags", "content"]
+
+# 分类法
+taxonomies:
+  tag: tags
+  category: categories
+  series: series
+
+markup:
+  goldmark:
+    renderer:
+      unsafe: true
+  highlight:
+    codeFences: true
+    guessSyntax: true
+    lineNos: true
+    style: monokai
+
+# 语言
+languageCode: zh
+defaultContentLanguage: zh
+defaultContentLanguageInSubdir: false
+languages:
+  zh:
+    menu:
+      main:
+        - identifier: search
+          name: 🔍
+          url: search
+          weight: 10
+        - identifier: home
+          name: 主页
+          url: /
+          weight: 20
+        - identifier: archives
+          name: 时间轴
+          url: /archives
+          weight: 30
+        - identifier: tags
+          name: 标签
+          url: /tags
+          weight: 40

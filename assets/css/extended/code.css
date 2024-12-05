@@ -1,0 +1,4 @@
+.post-content pre code {
+    max-height: 40em; /* 根据需要调整高度 */
+    overflow: auto;
+}

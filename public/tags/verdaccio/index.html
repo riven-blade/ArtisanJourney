@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="zh" dir="auto">
+
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=54085&amp;path=livereload" data-no-instant defer></script><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Verdaccio | TigerStack</title>
+<meta name="keywords" content="">
+<meta name="description" content="一个简约的技术笔记博客">
+<meta name="author" content="小虎">
+<link rel="canonical" href="http://localhost:54085/tags/verdaccio/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1d91894ec459cffe0685b48027c2e0f1be4d4faa619c52ff1d20d4f1f7853031.css" integrity="sha256-HZGJTsRZz/4GhbSAJ8Lg8b5NT6phnFL/HSDU8feFMDE=" rel="preload stylesheet" as="style">
+<link rel="icon" href="http://localhost:54085/img/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:54085/img/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:54085/img/favicon-96x96.png">
+<link rel="apple-touch-icon" href="http://localhost:54085/apple-touch-icon.png">
+<link rel="mask-icon" href="http://localhost:54085/web-app-manifest-192x192.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="alternate" type="application/rss+xml" href="http://localhost:54085/tags/verdaccio/index.xml">
+<link rel="alternate" hreflang="zh" href="http://localhost:54085/tags/verdaccio/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+    <style>
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --theme: rgb(29, 30, 32);
+                --entry: rgb(46, 46, 51);
+                --primary: rgb(218, 218, 219);
+                --secondary: rgb(155, 156, 157);
+                --tertiary: rgb(65, 66, 68);
+                --content: rgb(196, 196, 197);
+                --code-block-bg: rgb(46, 46, 51);
+                --code-bg: rgb(55, 56, 62);
+                --border: rgb(51, 51, 51);
+            }
+
+            .list {
+                background: var(--theme);
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-track {
+                background: 0 0;
+            }
+
+            .list:not(.dark)::-webkit-scrollbar-thumb {
+                border-color: var(--theme);
+            }
+        }
+
+    </style>
+</noscript><meta property="og:url" content="http://localhost:54085/tags/verdaccio/">
+  <meta property="og:site_name" content="TigerStack">
+  <meta property="og:title" content="Verdaccio">
+  <meta property="og:description" content="一个简约的技术笔记博客">
+  <meta property="og:locale" content="zh">
+  <meta property="og:type" content="website">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Verdaccio">
+<meta name="twitter:description" content="一个简约的技术笔记博客">
+
+</head>
+
+<body class="list" id="top">
+<script>
+    if (localStorage.getItem("pref-theme") === "dark") {
+        document.body.classList.add('dark');
+    } else if (localStorage.getItem("pref-theme") === "light") {
+        document.body.classList.remove('dark')
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        document.body.classList.add('dark');
+    }
+
+</script>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="http://localhost:54085/" accesskey="h" title="TigerStack (Alt + H)">TigerStack</a>
+            <div class="logo-switches">
+                <button id="theme-toggle" accesskey="t" title="(Alt + T)">
+                    <svg id="moon" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+                    </svg>
+                    <svg id="sun" xmlns="http://www.w3.org/2000/svg" width="24" height="18" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <circle cx="12" cy="12" r="5"></circle>
+                        <line x1="12" y1="1" x2="12" y2="3"></line>
+                        <line x1="12" y1="21" x2="12" y2="23"></line>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                        <line x1="1" y1="12" x2="3" y2="12"></line>
+                        <line x1="21" y1="12" x2="23" y2="12"></line>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+                    </svg>
+                </button>
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="http://localhost:54085/search" title="🔍 (Alt &#43; /)" accesskey=/>
+                    <span>🔍</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:54085/" title="主页">
+                    <span>主页</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:54085/archives" title="时间轴">
+                    <span>时间轴</span>
+                </a>
+            </li>
+            <li>
+                <a href="http://localhost:54085/tags" title="标签">
+                    <span>标签</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main"> 
+<header class="page-header"><div class="breadcrumbs"><a href="http://localhost:54085/">主页</a>&nbsp;»&nbsp;<a href="http://localhost:54085/tags/">Tags</a></div>
+  <h1>
+    Verdaccio
+  </h1>
+</header>
+
+<article class="post-entry tag-entry"> 
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">verdaccio 开源工具
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>内容 工具介绍 官方文档 github地址
+verdaccio 是一款高效、易用的私有 npm 仓库管理工具，特别适合中小型团队使用。它可以显著提升包管理的安全性、效率和稳定性
+工具部署 部署组件 sing-box sing-box 可以作为verdaccio 拉取上游依赖的代理程序，这是个可选组件， 当服务器访问npm官方仓库网络不好时是必要的， 使用docker部署 verdaccio 官方仓库有docker-compose.yaml 文件， 这里使用docker部署 官方docker-compose.yaml 配置文件 docker-compose.yaml version: &#39;3&#39; services: verdaccio: restart: always image: verdaccio/verdaccio:nightly-master environment: VERDACCIO_PUBLIC_URL: &#34;https://npm.example.com&#34; container_name: verdaccio ports: - &#34;4873:4873&#34; volumes: - &#34;./storage:/verdaccio/storage&#34; - &#34;./conf:/verdaccio/conf&#34; - &#34;./plugins:/verdaccio/plugins&#34; deploy: resources: limits: cpus: &#39;2&#39; memory: 3G sing-box: image: ghcr.io/sagernet/sing-box:v1.10.3 container_name: sing-box restart: always ports: - &#34;1080:1080&#34; volumes: - /etc/sing-box:/etc/sing-box - /var/lib/sing-box:/var/lib/sing-box command: - run - -D - /var/lib/sing-box - -C - /etc/sing-box 说明：
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2024-12-03 00:00:00 +0000 UTC'>2024-12-03</span>&nbsp;·&nbsp;2 分钟&nbsp;·&nbsp;小虎&nbsp;·&nbsp;<a href="/tags/verdaccio"> verdaccio</a></footer>
+  <a class="entry-link" aria-label="post link to verdaccio 开源工具" href="http://localhost:54085/posts/verdaccio-%E5%BC%80%E6%BA%90%E5%B7%A5%E5%85%B7/"></a>
+</article>
+    </main>
+    
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+<script>
+    document.getElementById("theme-toggle").addEventListener("click", () => {
+        if (document.body.className.includes("dark")) {
+            document.body.classList.remove('dark');
+            localStorage.setItem("pref-theme", 'light');
+        } else {
+            document.body.classList.add('dark');
+            localStorage.setItem("pref-theme", 'dark');
+        }
+    })
+
+</script>
+</body>
+
+</html>
+
+
+
+
