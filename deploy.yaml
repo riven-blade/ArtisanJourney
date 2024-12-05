@@ -1,0 +1,94 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-hugo
+  labels:
+    app: nginx-hugo
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-hugo
+  template:
+    metadata:
+      labels:
+        app: nginx-hugo
+    spec:
+      containers:
+        - name: nginx
+          image: docker.io/ddhdocker/nginx-hugo:v1.0.0
+          ports:
+            - containerPort: 80
+            - containerPort: 22
+          volumeMounts:
+            - mountPath: /usr/share/nginx/html
+              name: static-files
+          command:
+            ["/bin/bash", "-c", "service ssh start && nginx -g 'daemon off;'"]
+          resources:
+            requests:
+              cpu: "1"
+              memory: 1Gi
+            limits:
+              cpu: "2"
+              memory: 2Gi
+      volumes:
+        - name: static-files
+          persistentVolumeClaim:
+            claimName: nginx-static-files-pvc
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: nginx-static-files-pvc
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 100Gi
+  storageClassName: local-path
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-hugo-service
+  labels:
+    app: nginx-hugo
+spec:
+  selector:
+    app: nginx-hugo
+  ports:
+    - protocol: TCP
+      name: http
+      port: 80
+      targetPort: 80
+    - protocol: TCP
+      port: 22
+      name: ssh
+      targetPort: 22
+  type: NodePort
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+  name: nginx-hugo-ingress
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: blog.foreverlin.cn
+      http:
+        paths:
+          - backend:
+              service:
+                name: nginx-hugo-service
+                port:
+                  number: 80
+            path: /
+            pathType: Prefix
+  tls:
+    - hosts:
+        - blog.foreverlin.cn
+      secretName: blog-tls
